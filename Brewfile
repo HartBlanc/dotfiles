@@ -8,6 +8,8 @@ brew "exa"
 brew "gh"
 # Distributed revision control system
 brew "git"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Library for command-line editing
