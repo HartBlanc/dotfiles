@@ -2,6 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "romkatv/powerlevel10k"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Cryptography and SSL/TLS Toolkit
