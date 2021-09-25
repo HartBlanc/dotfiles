@@ -19,3 +19,15 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Zsh history search
+
+## loads zsh functions which search history and move the cursor to the end of the line
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+## Up key searches backwards
+bindkey "^[[A" history-beginning-search-backward-end
+## Down key searches forwards
+bindkey "^[[B" history-beginning-search-forward-end
