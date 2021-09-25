@@ -2,6 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "romkatv/powerlevel10k"
+# Modern replacement for 'ls'
+brew "exa"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system

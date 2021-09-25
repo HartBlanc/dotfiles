@@ -34,3 +34,6 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 # set default editor to vi
 export EDITOR=vi
+
+# replace ls with a more modern replacement (install with brew)
+alias ls="exa --long --header --git"
