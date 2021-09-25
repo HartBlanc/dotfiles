@@ -8,6 +8,8 @@ brew "exa"
 brew "gh"
 # Distributed revision control system
 brew "git"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Cryptography and SSL/TLS Toolkit

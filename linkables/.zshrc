@@ -37,3 +37,6 @@ export EDITOR=vi
 
 # replace ls with a more modern replacement (install with brew)
 alias ls="exa --long --header --git"
+
+# add go binaries (e.g. mockgen) to PATH
+export PATH=$PATH:/Users/callumhart/go/bin
