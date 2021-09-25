@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "romkatv/powerlevel10k"
 # Distributed revision control system
 brew "git"
 # Cryptography and SSL/TLS Toolkit
@@ -21,7 +22,13 @@ brew "pyenv"
 brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
+# A Zsh Theme
+brew "romkatv/powerlevel10k/powerlevel10k"
 # Web browser
 cask "firefox"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Music streaming service
+cask "spotify"
+# Open-source code editor
+cask "visual-studio-code"
