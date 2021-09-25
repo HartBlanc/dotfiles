@@ -31,3 +31,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 ## Down key searches forwards
 bindkey "^[[B" history-beginning-search-forward-end
+
+# set default editor to vi
+export EDITOR=vi
