@@ -5,10 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# The clang python binding searches for header files in /usr/include by default
-# MacOS System Integrity Protection prevents the cration of /usr/include (even by root)
-# updating CPATH tells the clang python binding where to find the C headers
+# The clang python binding searches for header files in /usr/include by default.
+# MacOS System Integrity Protection prevents the cration of /usr/include (even by root).
+# Updating CPATH tells the clang python binding where to find the C headers.
+# You need to have the command line tools installed for this to work.
+# They will not be pressent after an OS upgrade. Use xcode-select --install to install them.
 export CPATH=`xcrun --show-sdk-path`/usr/include
+
 
 # add the user base's binary directory to the path to allow binaries to be installed
 # using `pip3 --user` (reduces risk of breaking system-wide packages)
@@ -32,11 +35,39 @@ bindkey "^[[A" history-beginning-search-backward-end
 ## Down key searches forwards
 bindkey "^[[B" history-beginning-search-forward-end
 
-# set default editor to vi
-export EDITOR=vi
+# set default editor to neovim
+export EDITOR=nvim
+alias vi=nvim
 
 # replace ls with a more modern replacement (install with brew)
 alias ls="exa --long --header --git"
 
 # add go binaries (e.g. mockgen) to PATH
 export PATH=$PATH:/Users/callumhart/go/bin
+
+PATH="/Users/callumhart/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/callumhart/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/callumhart/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/callumhart/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/callumhart/perl5"; export PERL_MM_OPT;
+
+alias plz=please
+
+# activate zsh auto-completions
+autoload -Uz compinit
+compinit
+
+export PROJ=~/Documents/old_mbp/documents/Projects/
+
+# create an alias for fuzzy finding with a syntax highlighting preview
+alias fzfb="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+# use ripgrep for fuzzy finding
+export FZF_DEFAULT_COMMAND='rg --files'
+
+# Use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='~~'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set terminal keybindings to emacs (zsh assumes you want vim bindings if you set your editor to vim)
+bindkey -e
