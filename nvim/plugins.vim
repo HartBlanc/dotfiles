@@ -37,5 +37,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " a status line plugin
 Plug 'nvim-lualine/lualine.nvim'
 
+" smoother scrolling for navigation commands (e.g. C-d C-u)
+Plug 'psliwka/vim-smoothie'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

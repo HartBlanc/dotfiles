@@ -17,3 +17,6 @@ COQnow
 
 " enable inline git blame annotation
 let g:blamer_enabled = 1
+
+" enable gg and G experimental smooth scrolling
+let g:smoothie_experimental_mappings = 1
