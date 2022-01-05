@@ -40,5 +40,8 @@ Plug 'nvim-lualine/lualine.nvim'
 " smoother scrolling for navigation commands (e.g. C-d C-u)
 Plug 'psliwka/vim-smoothie'
 
+" yank to clipboard (incl. over ssh)
+Plug 'ojroques/vim-oscyank'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

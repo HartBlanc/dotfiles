@@ -12,3 +12,6 @@ set shiftwidth=4
 
 " Display absolute line numbers
 set number
+
+" copy yanked text to system clipboard (including over ssh)
+autocmd TextYankPost * execute 'OSCYankReg "'

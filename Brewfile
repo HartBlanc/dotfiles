@@ -66,6 +66,8 @@ cask "firefox"
 cask "inkscape"
 # Menu bar calendar
 cask "itsycal"
+# Clipboard manager
+cask "maccy"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Music streaming service
