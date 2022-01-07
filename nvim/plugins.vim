@@ -43,5 +43,11 @@ Plug 'psliwka/vim-smoothie'
 " yank to clipboard (incl. over ssh)
 Plug 'ojroques/vim-oscyank'
 
+" plugin for in-window navigation
+Plug 'ggandor/lightspeed.nvim'
+
+" plugin for auto-formatting code
+Plug 'sbdchd/neoformat'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

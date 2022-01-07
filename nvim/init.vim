@@ -13,7 +13,7 @@ for f in g:config_file_list
 endfor
 
 " enable autocompletion
-COQnow
+COQnow --shut-up
 
 " enable inline git blame annotation
 let g:blamer_enabled = 1
