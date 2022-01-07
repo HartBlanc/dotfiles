@@ -1,5 +1,7 @@
 " Set up the module for syntax highlighting with treesitter
 lua <<EOF
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+parser_config.python.used_by = 'please'
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
