@@ -12,10 +12,14 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " a faster C-based backend with fuzzyfinding 
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" a file browser extension for telescope
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " Treesitter is included for syntax highlighting
 " TSUpdate updates the treesitter parsers on update
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+" Treesitter motion helper plugin
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " Fugitive git plugin - has a nice :Git blame command
 Plug 'tpope/vim-fugitive'
