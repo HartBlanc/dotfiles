@@ -47,8 +47,6 @@ alias ll="exa --header --classify --all --long"
 # add go binaries (e.g. mockgen) to PATH
 export PATH=$PATH:/Users/callumhart/go/bin
 
-alias plz=please
-
 # activate zsh auto-completions
 autoload -Uz compinit
 compinit

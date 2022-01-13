@@ -6,6 +6,18 @@ call plug#begin(stdpath('data') . '/plugged')
 " Configurations for neovims built in LSP client
 Plug 'neovim/nvim-lspconfig'
 
+" Autocompletion plugins
+Plug 'hrsh7th/nvim-cmp'
+" a snippet engine
+Plug 'hrsh7th/vim-vsnip'
+" completion sources for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+
+
 " Telescope Code/File searching
 " plenary is a dependency of telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -26,11 +38,6 @@ Plug 'tpope/vim-fugitive'
 
 " nightfly 'true colour', treesitter compatible, color scheme
 Plug 'bluz71/vim-nightfly-guicolors'
-
-" coq autocompletion
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-" snippets
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
 " inline git blame
 Plug 'APZelos/blamer.nvim'

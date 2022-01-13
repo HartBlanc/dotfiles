@@ -1,6 +1,3 @@
-" Disable Ctrl-h mapping for coq as it clashes with tmux-navigator
-let g:coq_settings = {"keymap.jump_to_mark": v:null}
-
 " Enable language servers
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -10,9 +7,6 @@ local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -38,27 +32,28 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-
-local coq = require "coq" -- add coq autocompletion to to clients
-
 require('lspconfig.configs').please = {
 	default_config = {
 		cmd = { 'plz', 'tool', 'lps' },
 		filetypes = { 'please' },
-		root_dir = require('lspconfig.util').root_pattern '.plzconfig',
+		root_dir = nvim_lsp.util.root_pattern '.plzconfig',
 	},
 }
 
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
 
 local servers = { 'pyright', 'gopls', 'please' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup(coq.lsp_ensure_capabilities({
+  nvim_lsp[lsp].setup({
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
     }
-  }))
+  })
 end
 EOF
