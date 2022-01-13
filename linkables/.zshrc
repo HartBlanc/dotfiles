@@ -63,5 +63,8 @@ export FZF_COMPLETION_TRIGGER='~~'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# plz build system CLI autocompletion
+source <(plz --completion_script)
+
 # set terminal keybindings to emacs (zsh assumes you want vim bindings if you set your editor to vim)
 bindkey -e
