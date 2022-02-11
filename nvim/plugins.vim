@@ -60,5 +60,8 @@ Plug 'ggandor/lightspeed.nvim'
 " plugin for auto-formatting code
 Plug 'sbdchd/neoformat'
 
+" comment out with 'gcc'
+Plug 'tpope/vim-commentary'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
