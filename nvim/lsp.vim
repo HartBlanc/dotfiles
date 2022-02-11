@@ -32,16 +32,22 @@ local on_attach = function(client, bufnr)
 
 end
 
-require('lspconfig.configs').please = {
-	default_config = {
-		cmd = { 'plz', 'tool', 'lps' },
-		filetypes = { 'please' },
-		root_dir = nvim_lsp.util.root_pattern '.plzconfig',
-	},
-}
-
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local configs = require "lspconfig.configs"
+
+-- if we write the please config twice (e.g. sourcing the file again) then we get an error
+if configs["please"] == nil then
+    -- add configs not included in nvim-lspconfig
+    configs["please"] = {
+      default_config = {
+        cmd = { 'plz', 'tool', 'lps' },
+        filetypes = { 'please' },
+        root_dir = nvim_lsp.util.root_pattern '.plzconfig',
+      },
+    }
+end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches

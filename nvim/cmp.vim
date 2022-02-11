@@ -41,5 +41,4 @@ lua <<EOF
       {{ name = 'path' }, { name = 'cmdline' }}
     )
   })
-
 EOF
