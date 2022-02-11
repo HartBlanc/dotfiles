@@ -37,7 +37,7 @@ require('telescope').load_extension('fzf')
 vim.api.nvim_set_keymap(
   "n",
   "fe",
-  "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
+  ":Telescope file_browser path=%:p:h<CR>",
   {noremap = true}
 )
 EOF
