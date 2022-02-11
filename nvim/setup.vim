@@ -10,7 +10,7 @@ set shiftwidth=4
 set expandtab
 
 " uses spaces for please build files
-autocmd BufRead,BufNewFile BUILD,*.build_defs,*.build_def,*.build set filetype=please
+autocmd BufRead,BufNewFile BUILD,*.build_defs,*.build_def,*.build,*.plz set filetype=please
 autocmd Filetype go setlocal expandtab!
 
 " autofmt file on save
