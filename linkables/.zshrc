@@ -23,18 +23,6 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Zsh history search
-
-## loads zsh functions which search history and move the cursor to the end of the line
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-
-## Up key searches backwards
-bindkey "^[[A" history-beginning-search-backward-end
-## Down key searches forwards
-bindkey "^[[B" history-beginning-search-forward-end
-
 # set default editor to neovim
 export EDITOR=nvim
 alias vi=nvim
@@ -66,5 +54,29 @@ export FZF_COMPLETION_TRIGGER='~~'
 # plz build system CLI autocompletion
 source <(plz --completion_script)
 
-# set terminal keybindings to emacs (zsh assumes you want vim bindings if you set your editor to vim)
+
+# KEY BINDINGS
+
+# Set terminal keybindings to emacs (zsh may assume you want vim bindings if you set your editor to vim)
+# This must be done before other keybindings otherwise other bindings will be overwritten in tmux
 bindkey -e
+
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+# Zsh history search
+
+# loads zsh functions which search history and move the cursor to the end of the line
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+# Up key searches backwards
+bindkey "^[[A" history-beginning-search-backward-end
+# Down key searches forwards
+bindkey "^[[B" history-beginning-search-forward-end
+
