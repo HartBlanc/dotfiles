@@ -12,12 +12,12 @@ set expandtab
 " uses spaces for please build files
 autocmd BufRead,BufNewFile BUILD,*.build_defs,*.build_def,*.build,*.plz set filetype=please
 autocmd Filetype go setlocal expandtab!
-autocmd Filetype markdown,proto setlocal spell spelllange=en_gb spellcapcheck=
+autocmd Filetype markdown,proto setlocal spell spelllang=en_gb spellcapcheck=
 
 " autofmt file on save
 augroup fmt
   autocmd!
-  au BufWritePre *.go try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790 | finally | silent Neoformat | endtry
+  au BufWritePre *.go try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
 " Display absolute line numbers

@@ -4,7 +4,6 @@ inoremap jk <Esc>
 syntax on
 filetype on
 set number
-set nu rnu
 set autoindent
 set expandtab
 set tabstop=4

@@ -36,7 +36,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " Fugitive git plugin - has a nice :Git blame command
 Plug 'tpope/vim-fugitive'
 
-" comment out with 'gcc'
+" toggle comments using gcc
 Plug 'tpope/vim-commentary'
 
 " modify brackets using 's' in operator-pending mode
