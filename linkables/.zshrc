@@ -5,6 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# The clang python binding searches for header files in /usr/include by default.
+# MacOS System Integrity Protection prevents the cration of /usr/include (even by root).
+# Updating CPATH tells the clang python binding where to find the C headers.
+# You need to have the command line tools installed for this to work.
+# They will not be pressent after an OS upgrade. Use xcode-select --install to install them.
+if whence xcrun >/dev/null; then
+    export CPATH=`xcrun --show-sdk-path`/usr/include
+fi
+
 # add the user base's binary directory to the path to allow binaries to be installed
 # using `pip3 --user` (reduces risk of breaking system-wide packages)
 export PATH=$PATH:$(python3 -m site --user-base)/bin
