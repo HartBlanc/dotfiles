@@ -23,7 +23,6 @@ lua <<EOF
       }),
       ['<TAB>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i'}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       ['<S-TAB>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i'}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     },
     sources = cmp.config.sources(
