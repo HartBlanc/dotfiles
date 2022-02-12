@@ -3,7 +3,7 @@ set backspace=indent,eol,start
 inoremap jk <Esc>
 syntax on
 filetype on
-set number relativenumber
+set number
 set nu rnu
 set autoindent
 set expandtab

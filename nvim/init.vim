@@ -1,5 +1,4 @@
 " source all of the vim files
-
 let g:nvim_config_root = stdpath('config')
 let g:config_file_list = ['setup.vim',
     \ 'plugins.vim',

@@ -6,7 +6,7 @@
     pager = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --side-by-side --color-only --features=interactive
 
 [delta]
     features = decorations

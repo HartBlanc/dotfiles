@@ -36,6 +36,12 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " Fugitive git plugin - has a nice :Git blame command
 Plug 'tpope/vim-fugitive'
 
+" comment out with 'gcc'
+Plug 'tpope/vim-commentary'
+
+" modify brackets using 's' in operator-pending mode
+Plug 'tpope/vim-surround'
+
 " nightfly 'true colour', treesitter compatible, color scheme
 Plug 'bluz71/vim-nightfly-guicolors'
 
@@ -59,9 +65,6 @@ Plug 'ggandor/lightspeed.nvim'
 
 " plugin for auto-formatting code
 Plug 'sbdchd/neoformat'
-
-" comment out with 'gcc'
-Plug 'tpope/vim-commentary'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
