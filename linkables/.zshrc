@@ -23,7 +23,7 @@ if whence brew >/dev/null; then
     source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
-    source ~/.zsh/powerlevel10k/powerlevel10k.zsh-there
+    source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
