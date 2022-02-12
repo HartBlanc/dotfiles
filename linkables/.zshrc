@@ -120,6 +120,11 @@ export FZF_COMPLETION_TRIGGER='~~'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# URL ESCAPING
+autoload -U url-quote-magic bracketed-paste-magic
+zle -N self-insert url-quote-magic
+zle -N bracketed-paste bracketed-paste-magic
+
 # KEY BINDINGS
 
 # Set terminal keybindings to emacs (zsh may assume you want vim bindings if you set your editor to vim)
@@ -137,4 +142,3 @@ bindkey '^x^e' edit-command-line
 bindkey "$key[Up]" history-beginning-search-backward-end
 # Down key searches forwards
 bindkey "$key[Down]" history-beginning-search-forward-end
-
