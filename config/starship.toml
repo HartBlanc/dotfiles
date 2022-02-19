@@ -1,0 +1,9 @@
+[kubernetes]
+disabled = false
+
+[time]
+disabled = false
+
+[status]
+disabled = false
+
