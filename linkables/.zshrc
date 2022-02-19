@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # The clang python binding searches for header files in /usr/include by default.
 # MacOS System Integrity Protection prevents the cration of /usr/include (even by root).
 # Updating CPATH tells the clang python binding where to find the C headers.
@@ -20,15 +13,10 @@ export PATH=$PATH:$(python3 -m site --user-base)/bin
 
 # source extensions
 if whence brew >/dev/null; then
-    source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
-    source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # set default editor to neovim (used for e.g. commit messages)
 export EDITOR=nvim
@@ -142,3 +130,6 @@ bindkey '^x^e' edit-command-line
 bindkey "$key[Up]" history-beginning-search-backward-end
 # Down key searches forwards
 bindkey "$key[Down]" history-beginning-search-forward-end
+
+# PROMPT - see ~/.config/starship.toml for config
+eval "$(starship init zsh)"
