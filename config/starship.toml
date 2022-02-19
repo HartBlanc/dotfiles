@@ -7,3 +7,14 @@ disabled = false
 [status]
 disabled = false
 
+
+[git_status]
+conflicted = '!\($count\)'
+ahead = '⇡\($count\)'
+behind = '⇣\($count\)'
+diverged = '⇡\($ahead_count\)⇣\($behind_count\)'
+untracked = '?\($count\)'
+modified = '++\($count\)'
+staged = '✓\($count\)'
+renamed = '»\($count\)'
+deleted = '✘\($count\)'
