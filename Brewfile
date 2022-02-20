@@ -15,6 +15,8 @@ brew "xz"
 brew "python@3.9"
 # Core application library for C
 brew "glib"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Programming language for highly scalable real-time systems
