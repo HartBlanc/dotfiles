@@ -4,8 +4,17 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "romkatv/powerlevel10k"
 tap "thought-machine/please"
+tap "yt-dlp/taps"
+# ARP scanning and fingerprinting tool
+brew "arp-scan"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Core application library for C
+brew "glib"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Programming language for highly scalable real-time systems
@@ -14,30 +23,42 @@ brew "erlang"
 brew "elixir"
 # Modern replacement for 'ls'
 brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# General-purpose data compression with high compression ratio
-brew "xz"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
-# Core application library for C
-brew "glib"
+# Postgres C API library
+brew "libpq"
+# Package for scientific computing with Python
+brew "numpy"
+# Geospatial Data Abstraction Library
+brew "gdal"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Image manipulation
+brew "netpbm"
+# Port scanning utility for large networks
+brew "nmap"
 # Platform built on V8 to build network applications
 brew "node"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Python version management
@@ -48,18 +69,26 @@ brew "pyright"
 brew "ranger"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Terminal multiplexer
 brew "tmux"
 # General-purpose lossless data-compression library
 brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
-# A Zsh Theme
-brew "romkatv/powerlevel10k/powerlevel10k"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
 # High-performance extensible build system for reproducible builds
 brew "thought-machine/please/please"
+# A youtube-dl fork with additional features and fixes
+brew "yt-dlp/taps/yt-dlp"
 # Memory training application
 cask "anki"
+# Application uninstaller
+cask "appcleaner"
+# Reimagine your terminal
+cask "fig"
 # Web browser
 cask "firefox"
 # Vector graphics editor
