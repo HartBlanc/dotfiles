@@ -1,7 +1,11 @@
-" Remap ctrl-p to search for files by filepath
+" Remap ctrl/meta-p to search for files by filepath (in cwd + git root)
 nnoremap <silent> <C-p> :Telescope find_files<CR>
-" Remap ctrl-f to fzf all lines in cwd
+nnoremap <silent> <M-p> <cmd>lua require('telescope.builtin').find_files{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] }<CR>
+
+" Remap ctrl/meta-f to fzf all lines in cwd (in cwd + git root)
 nnoremap <silent> <C-f> :Telescope live_grep<CR>
+nnoremap <silent> <M-f> <cmd>lua require('telescope.builtin').live_grep{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] }<CR>
+
 " Remap ff to fzf lines in the currently open buffer
 nnoremap <silent> ff :Telescope current_buffer_fuzzy_find<CR>
 " Remap fb to open a list of the currently open buffers
@@ -73,6 +77,17 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" set up status line
-lua require'lualine'.setup()
 
+" set up status line
+lua <<EOF
+require'lualine'.setup{
+  sections = {
+    lualine_a = {
+      {
+        'filename',
+        path = 2, -- absolute file path
+      }
+    }
+  }
+}
+EOF
