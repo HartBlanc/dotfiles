@@ -127,9 +127,9 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
 # Up key searches backwards
-bindkey "$key[Up]" history-beginning-search-backward-end
+bindkey "^[[A" history-beginning-search-backward
 # Down key searches forwards
-bindkey "$key[Down]" history-beginning-search-forward-end
+bindkey "^[[B" history-beginning-search-forward
 
 # PROMPT - see ~/.config/starship.toml for config
 eval "$(starship init zsh)"
