@@ -85,7 +85,7 @@ require'lualine'.setup{
     lualine_a = {
       {
         'filename',
-        path = 2, -- absolute file path
+        path = 1, -- relative file path
       }
     }
   }
