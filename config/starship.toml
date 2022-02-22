@@ -1,25 +1,25 @@
-format = """[│](bold white)$directory$git_branch$git_status
-[└─$character](bold white) """
+format = """[│](bold cyan)$directory$git_branch$git_status
+[└─❯](bold cyan) """
 
-right_format = "[$time$cmd_duration$status$kubernetes](bold green)"
+right_format = "[$time$cmd_duration$status$kubernetes](bold cyan)"
 
 [kubernetes]
 disabled = false
-format = ' [$symbol$context( \($namespace\))](bold green)'
+format = ' [$symbol$context( \($namespace\))](bold cyan)'
 
 [time]
-format = "[$time](bold green)"
+format = "[$time](bold cyan)"
 disabled = false
 
 [status]
-format = " [$symbol$status](bold green)"
+format = " [$symbol$status](bold cyan)"
 disabled = false
 
 [git_branch]
-format = "[on](white) [$branch](bold green)"
+format = "[on](cyan) [$branch](bold cyan)"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]](green))'
+format = '([\[$all_status$ahead_behind\]](cyan))'
 conflicted = '!\($count\)'
 ahead = '⇡\($count\)'
 behind = '⇣\($count\)'
@@ -31,7 +31,7 @@ renamed = '»\($count\)'
 deleted = '✘\($count\)'
 
 [directory]
-format = "[$path/](bold green)[$read_only]($read_only_style) "
+format = "[$path/](bold cyan)[$read_only]($read_only_style) "
 
 [cmd_duration]
 format = " $duration"
