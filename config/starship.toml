@@ -1,20 +1,38 @@
+format = """[│](bold white)$directory$git_branch$git_status
+[└─$character](bold white) """
+
+right_format = "[$time$cmd_duration$status$kubernetes](bold green)"
+
 [kubernetes]
 disabled = false
+format = ' [$symbol$context( \($namespace\))](bold green)'
 
 [time]
+format = "[$time](bold green)"
 disabled = false
 
 [status]
+format = " [$symbol$status](bold green)"
 disabled = false
 
+[git_branch]
+format = "[on](white) [$branch](bold green)"
 
 [git_status]
+format = '([\[$all_status$ahead_behind\]](green))'
 conflicted = '!\($count\)'
 ahead = '⇡\($count\)'
 behind = '⇣\($count\)'
 diverged = '⇡\($ahead_count\)⇣\($behind_count\)'
 untracked = '?\($count\)'
-modified = '++\($count\)'
+modified = '+\($count\)'
 staged = '✓\($count\)'
 renamed = '»\($count\)'
 deleted = '✘\($count\)'
+
+[directory]
+format = "[$path/](bold green)[$read_only]($read_only_style) "
+
+[cmd_duration]
+format = " $duration"
+
