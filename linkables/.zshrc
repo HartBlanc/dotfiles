@@ -80,11 +80,6 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 
-# loads zsh functions which search history and move the cursor to the end of the line
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-
 # ALIASES
 
 # replace ls with a more modern replacement (install with brew)
@@ -128,8 +123,12 @@ bindkey '^x^e' edit-command-line
 
 # Up key searches backwards
 bindkey "^[[A" history-beginning-search-backward
+# alternative ('application mode') Up key - present in different set ups
+bindkey "^[OA" history-beginning-search-backward
 # Down key searches forwards
 bindkey "^[[B" history-beginning-search-forward
+# alternative ('application mode') Down key - present in different set ups
+bindkey "^[OB" history-beginning-search-forward
 
 # PROMPT - see ~/.config/starship.toml for config
 eval "$(starship init zsh)"
