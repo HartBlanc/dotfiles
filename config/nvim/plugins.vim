@@ -66,5 +66,7 @@ Plug 'ggandor/lightspeed.nvim'
 " plugin for auto-formatting code
 Plug 'sbdchd/neoformat'
 
+Plug 'arcticicestudio/nord-vim'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

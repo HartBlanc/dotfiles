@@ -45,10 +45,14 @@ zstyle ':completion:*' menu select=long
 # set colors of automcompletion options based on the dircolors command if available
 # otherwise use the BSD (macOS) alternative
 if whence dircolors >/dev/null; then
-    eval "$(dircolors -b)"
+    eval $(dircolors ~/.dir_colors)
 else
-    eval "$(gdircolors -b)"
+    eval $(gdircolors ~/.dir_colors)
+    export LSCOLORS="ExgxdxGxGxDxdxHxHxHeEx"
+    export CLICOLOR=1
 fi
+
+
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 

@@ -18,7 +18,5 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" Need to enable true colours for the nightfly colorscheme
-" iTerm supports true colours, other emulators may not
 set termguicolors
-colorscheme nightfly
+colorscheme nord
