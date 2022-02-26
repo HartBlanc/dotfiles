@@ -86,6 +86,9 @@ export HISTFILE=~/.zsh_history
 
 # ALIASES
 
+
+alias tm='tmux new-session -A -s session tmux source-file ~/.tmux.conf'
+
 # replace ls with a more modern replacement (install with brew)
 alias ls="exa --classify "
 alias la="exa --classify --all"
