@@ -2,11 +2,12 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
-tap "romkatv/powerlevel10k"
 tap "thought-machine/please"
 tap "yt-dlp/taps"
 # ARP scanning and fingerprinting tool
 brew "arp-scan"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # General-purpose data compression with high compression ratio
@@ -47,6 +48,8 @@ brew "unbound"
 brew "gnutls"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# GNU grep, egrep and fgrep
+brew "grep"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Ambitious Vim-fork focused on extensibility and agility
