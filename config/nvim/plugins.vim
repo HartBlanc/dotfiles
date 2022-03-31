@@ -13,6 +13,9 @@ call plug#begin(stdpath('data') . '/plugged')
 " Configurations for neovims built in LSP client
 Plug 'neovim/nvim-lspconfig'
 
+" Language Server installer
+Plug 'williamboman/nvim-lsp-installer'
+
 " Autocompletion plugins
 Plug 'hrsh7th/nvim-cmp'
 " a snippet engine
@@ -74,6 +77,8 @@ Plug 'ggandor/lightspeed.nvim'
 Plug 'sbdchd/neoformat'
 
 Plug 'arcticicestudio/nord-vim'
+
+Plug 'marcuscaisey/please.nvim', { 'branch': 'jump-to-target' }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

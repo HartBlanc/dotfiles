@@ -49,16 +49,41 @@ if configs["please"] == nil then
     }
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'gopls' , 'please', 'tsserver'} 
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup({
+-- set up the please language server
+nvim_lsp["please"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
     }
-  })
+})
+
+local lsp_installer = require("nvim-lsp-installer")
+
+-- Install language servers if not already installed
+local servers = {
+  "pyright",
+  "gopls",
+  "tsserver",
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
 end
+
+-- define options to set up language servers with
+lsp_installer.on_server_ready(function(server)
+    local opts = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
+    server:setup(opts)
+end)
 EOF

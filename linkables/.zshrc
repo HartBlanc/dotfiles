@@ -11,6 +11,9 @@ fi
 # using `pip3 --user` (reduces risk of breaking system-wide packages)
 export PATH=$PATH:$(python3 -m site --user-base)/bin
 
+# add cargo binaries to the path to access rusty CLIs (rg, fd, fzf etc.)
+export PATH=$PATH:$HOME/.cargo/bin
+
 # source extensions
 if whence brew >/dev/null; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -94,8 +97,11 @@ alias ll="exa --header --classify --all --long"
 # use neovim instead of vim
 alias vi=nvim
 
-# open a buffer in neovim for each file with a conflict
-alias conflicts='git diff --name-only --diff-filter=U | sed "s@^@$(git rev-parse --show-toplevel)/@" | xargs nvim'
+# open neovim with the list of conflicts in the quickfix 
+alias conflicts='nvim -q <(git diff --name-only --diff-filter=U | sed -e "s@^@$(git rev-parse --show-toplevel)/@" -e "s/$/:1:conflicts/" | xargs realpath --relative-to $(pwd)) +copen'
+
+# select a branch to checkout from a list of all local branches
+alias gcb='git checkout $(git branch | fzf)'
 
 # FZF
 
