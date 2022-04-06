@@ -27,7 +27,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 
-
 " Telescope Code/File searching
 " plenary is a dependency of telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -52,9 +51,6 @@ Plug 'tpope/vim-commentary'
 " modify brackets using 's' in operator-pending mode
 Plug 'tpope/vim-surround'
 
-" nightfly 'true colour', treesitter compatible, color scheme
-Plug 'bluz71/vim-nightfly-guicolors'
-
 " inline git blame
 Plug 'APZelos/blamer.nvim'
 
@@ -76,7 +72,7 @@ Plug 'ggandor/lightspeed.nvim'
 " plugin for auto-formatting code
 Plug 'sbdchd/neoformat'
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'shaunsingh/nord.nvim'
 
 Plug 'marcuscaisey/please.nvim', { 'branch': 'jump-to-target' }
 
