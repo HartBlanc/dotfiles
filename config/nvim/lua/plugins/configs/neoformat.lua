@@ -1,4 +1,4 @@
-local file_types = require('file_types')
+local file_types_utils = require('utils.file_types')
 
 vim.g.neoformat_enabled_python = { 'black' }
 vim.g.neoformat_enabled_lua = { 'stylua' }
@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd(
     'BufWritePre',
     {
         callback = function()
-            if file_types.auto_format_file_types[vim.o.filetype] and auto_formatting_enabled then
+            if file_types_utils.auto_format_file_types[vim.o.filetype] and auto_formatting_enabled then
                 vim.cmd 'Neoformat'
             end
         end,

@@ -21,12 +21,12 @@ local servers = {
     'pyright',
     'yamlls',
     'vimls',
-    'ccls',
     'bashls',
     'intelephense',
     'tsserver',
     'sumneko_lua',
     'please',
+--    'ccls',
 }
 
 for _, name in pairs(servers) do
