@@ -14,6 +14,7 @@ local plugins = {
     'tpope/vim-fugitive',
     'tpope/vim-unimpaired',
     'christoomey/vim-tmux-navigator',
+    'marcuscaisey/please.nvim',
     {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -111,10 +112,6 @@ local plugins = {
         config = function()
             require('plugins.configs.nord')
         end
-    },
-    {
-        'marcuscaisey/please.nvim',
-        branch = 'jump-to-target',
     },
 }
 

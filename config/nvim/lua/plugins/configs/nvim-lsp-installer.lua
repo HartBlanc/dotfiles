@@ -26,16 +26,8 @@ local servers = {
     'tsserver',
     'sumneko_lua',
     'please',
---    'ccls',
 }
 
-for _, name in pairs(servers) do
-    local server_is_found, server = lsp_installer.get_server(name)
-    if server_is_found and not server:is_installed() then
-        print('Installing ' .. name)
-        server:install()
-    end
-end
 
 -- Define options and how to set up language server
 local opts = {
@@ -44,7 +36,26 @@ local opts = {
         debounce_text_changes = 150,
     },
 }
- 
+
+local function install_or_setup(install, name, server)
+    if not install then
+        lspconfig[name].setup(opts)
+        return
+    end
+
+    if server:is_installed() then
+        return
+    end
+
+    print('Installing ' .. name)
+    server:install()
+end
+
+for _, name in pairs(servers) do
+    local server_is_found, server = lsp_installer.get_server(name)
+    install_or_setup(server_is_found, name, server)
+end
+
 lsp_installer.on_server_ready(
     function(server)
         server:setup(opts)
