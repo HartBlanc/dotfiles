@@ -54,3 +54,6 @@ map('n', '[c', gitsigns.prev_hunk)
 
 -- please.nvim
 map('n', '<leader>pj', please.jump_to_target)
+map('n', '<leader>pb', please.build_target)
+map('n', '<leader>ptf', please.test_file)
+map('n', '<leader>ptc', please.test_under_cursor)
