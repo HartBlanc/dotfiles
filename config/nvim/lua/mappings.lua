@@ -32,7 +32,7 @@ map('n', 'gi', function()
     telescope_builtin.lsp_implementations({ jump_type = 'never' })
 end)
 map('n', 'fd', function()
-    local dirs = vim.fn.systemlist('fd --type d . ~')
+    local dirs = vim.fn.systemlist('fd -H --type d . ~')
     vim.ui.select(dirs, { prompt = 'Select directory to grep in' }, function(selection)
       telescope_builtin.live_grep { cwd = selection }
     end)

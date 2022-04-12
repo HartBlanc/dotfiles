@@ -9,7 +9,7 @@ local plugins = {
     'stevearc/dressing.nvim',
     'tpope/vim-eunuch',
     'tpope/vim-repeat',
-    'vim-scripts/ReplaceWithRegister',
+    -- 'vim-scripts/ReplaceWithRegister',
     'tpope/vim-surround',
     'tpope/vim-fugitive',
     'tpope/vim-unimpaired',
