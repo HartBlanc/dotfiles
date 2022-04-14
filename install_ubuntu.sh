@@ -10,11 +10,8 @@ curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
 # install cargo
 curl https://sh.rustup.rs -sSf | sh
 
-# install rust packages to $HOME/.cargo/bin
-pkgs="exa fd-find bat ripgrep sd"
-for pkg in $pkgs; do
-    cargo install $pkg
-done
+# install rust binaries to $HOME/.cargo/bin
+cargo install exa fd-find bat ripgrep sd git-delta
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -25,6 +22,7 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimag
 && chmod u+x nvim.appimage \
 && mv nvim.appimage /usr/lcoal/bin/nvim
 
+# install starship prompt
 curl -sS https://starship.rs/install.sh | sh
 
 chsh -s $(which zsh)
