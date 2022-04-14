@@ -25,4 +25,6 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimag
 && chmod u+x nvim.appimage \
 && mv nvim.appimage /usr/lcoal/bin/nvim
 
+curl -sS https://starship.rs/install.sh | sh
+
 chsh -s $(which zsh)
