@@ -7,6 +7,9 @@ curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
 && chmod u+x tmux.appimage \
 && mv tmux.appimage /usr/local/bin/tmux
 
+# install tmux plugin manager (you'll need to prefix-I manually to install the plugins)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # install cargo
 curl https://sh.rustup.rs -sSf | sh
 
