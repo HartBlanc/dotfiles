@@ -23,6 +23,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # install neovim
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage \
 && chmod u+x nvim.appimage \
-&& mv nvim.appimage /usr/lcoal/bin/tmux
+&& mv nvim.appimage /usr/lcoal/bin/nvim
 
 chsh -s $(which zsh)
