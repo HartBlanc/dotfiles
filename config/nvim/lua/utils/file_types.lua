@@ -18,6 +18,7 @@ local function add_text_width_autocmd(file_type, text_width)
 	vim.api.nvim_create_autocmd("FileType", {
 		callback = function()
 			vim.bo.textwidth = text_width
+			vim.wo.colorcolumn = tostring(text_width)
 			vim.cmd("setlocal formatoptions-=o")
 		end,
 		pattern = file_type,
