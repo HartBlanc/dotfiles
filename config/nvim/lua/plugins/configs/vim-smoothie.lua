@@ -1,1 +1,1 @@
-vim.g['smoothie_experimental_mappings'] = 1
+vim.g["smoothie_experimental_mappings"] = 1

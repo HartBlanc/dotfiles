@@ -142,3 +142,6 @@ bindkey "^[OB" history-beginning-search-forward
 
 # PROMPT - see ~/.config/starship.toml for config
 eval "$(starship init zsh)"
+
+# source local .zshrc
+source ~/.zsh/.zshrc

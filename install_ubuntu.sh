@@ -14,7 +14,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 curl https://sh.rustup.rs -sSf | sh
 
 # install rust binaries to $HOME/.cargo/bin
-cargo install exa fd-find bat ripgrep sd git-delta
+cargo install exa fd-find bat ripgrep sd git-delta stylua
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -23,7 +23,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # install neovim
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage \
 && chmod u+x nvim.appimage \
-&& mv nvim.appimage /usr/lcoal/bin/nvim
+&& sudo mv nvim.appimage /usr/local/bin/nvim
 
 # install starship prompt
 curl -sS https://starship.rs/install.sh | sh
