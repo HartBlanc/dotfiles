@@ -29,6 +29,9 @@ cargo install exa fd-find bat ripgrep sd git-delta stylua
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# required for some lsp language servers
+sudo apt install npm
+
 # install neovim
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage \
 && chmod u+x nvim.appimage \
