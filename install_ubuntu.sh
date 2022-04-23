@@ -1,6 +1,9 @@
 sudo apt get update
 sudo apt get upgrade
 
+# FUSE is required for appimages
+sudo apt install fuse
+
 # install latest version of tmux as an appimage
 curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
 | grep "browser_download_url.*appimage" \
