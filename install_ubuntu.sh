@@ -16,6 +16,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # install cargo
 curl https://sh.rustup.rs -sSf | sh
 
+# install gcc toolchain so we can compile rust binaries
+sudo apt install build-essential
+
 # install rust binaries to $HOME/.cargo/bin
 cargo install exa fd-find bat ripgrep sd git-delta stylua
 
