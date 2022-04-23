@@ -1,3 +1,6 @@
+sudo apt get update
+sudo apt get upgrade
+
 # install latest version of tmux as an appimage
 curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
 | grep "browser_download_url.*appimage" \
@@ -28,4 +31,6 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimag
 # install starship prompt
 curl -sS https://starship.rs/install.sh | sh
 
+sudo apt install zsh
+zsh ~/.dotfiles/link.zsh
 chsh -s $(which zsh)
