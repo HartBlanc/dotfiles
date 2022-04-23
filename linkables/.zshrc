@@ -97,7 +97,7 @@ alias ll="exa --header --classify --all --long"
 # use neovim instead of vim
 alias vi=nvim
 
-# open neovim with the list of conflicts in the quickfix 
+# open neovim with the list of conflicts in the quickfix
 alias conflicts='nvim -q <(git diff --name-only --diff-filter=U | sed -e "s@^@$(git rev-parse --show-toplevel)/@" -e "s/$/:1:conflicts/" | xargs realpath --relative-to $(pwd)) +copen'
 
 # select a branch to checkout from a list of all local branches
