@@ -1,7 +1,7 @@
 -- install packer and all of the packages if packer has not been installed already
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	packer_bootstrap = vim.fn.system({
+	_Packer_bootstrap = vim.fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -47,6 +47,7 @@ local plugins = {
 		end,
 		requires = {
 			"neovim/nvim-lspconfig",
+			"folke/lua-dev.nvim",
 		},
 	},
 	{
@@ -128,7 +129,7 @@ require("packer").startup({
 		for i = 1, #plugins do
 			use(plugins[i])
 		end
-		if packer_bootstrap then
+		if _Packer_bootstrap then
 			require("packer").sync()
 		end
 	end,

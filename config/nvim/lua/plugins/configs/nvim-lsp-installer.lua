@@ -2,6 +2,7 @@ local lspconfig = require("lspconfig")
 local lspconfigs = require("lspconfig.configs")
 local lsp_installer = require("nvim-lsp-installer")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local luadev = require("lua-dev")
 
 -- Add configuration for the Please language server (it is not included in lspconfigs by default)
 lspconfigs.please = {
@@ -56,5 +57,9 @@ for _, name in pairs(servers) do
 end
 
 lsp_installer.on_server_ready(function(server)
+	if server.name == "sumneko_lua" then
+		server:setup(luadev.setup(opts))
+		return
+	end
 	server:setup(opts)
 end)
