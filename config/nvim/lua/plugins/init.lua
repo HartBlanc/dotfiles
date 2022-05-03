@@ -23,6 +23,7 @@ local plugins = {
 	"christoomey/vim-tmux-navigator",
 	"marcuscaisey/please.nvim",
 	"nvim-treesitter/playground",
+	"lambdalisue/suda.vim",
 	{
 		"ggandor/leap.nvim",
 		config = function()

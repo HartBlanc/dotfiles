@@ -89,6 +89,8 @@ export HISTFILE=~/.zsh_history
 
 # ALIASES
 
+alias d="cd ~/.dotfiles"
+
 # replace ls with a more modern replacement (install with brew)
 alias ls="exa --classify "
 alias la="exa --classify --all"
@@ -101,7 +103,17 @@ alias vi=nvim
 alias conflicts='nvim -q <(git diff --name-only --diff-filter=U | sed -e "s@^@$(git rev-parse --show-toplevel)/@" -e "s/$/:1:conflicts/" | xargs realpath --relative-to $(pwd)) +copen'
 
 # select a branch to checkout from a list of all local branches
-alias gcb='git checkout $(git branch | fzf)'
+function gcb {
+    if [ "$1" ]; then
+        BRANCH=$(git branch | fzf --query=$1)
+    else
+        BRANCH=$(git branch | fzf)
+    fi
+
+    if [ "$BRANCH" ]; then
+        git checkout $BRANCH
+    fi
+}
 
 # FZF
 
