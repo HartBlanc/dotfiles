@@ -16,8 +16,7 @@ local plugins = {
 	"stevearc/dressing.nvim",
 	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
-	-- 'vim-scripts/ReplaceWithRegister',
-	"tpope/vim-surround",
+	-- "tpope/vim-surround",
 	"tpope/vim-fugitive",
 	"tpope/vim-unimpaired",
 	"christoomey/vim-tmux-navigator",
@@ -28,6 +27,12 @@ local plugins = {
 		"ggandor/leap.nvim",
 		config = function()
 			require("leap").set_default_keymaps()
+		end,
+	},
+	{
+		"bkad/camelcasemotion",
+		config = function()
+			require("plugins.configs.camelcasemotion")
 		end,
 	},
 	{

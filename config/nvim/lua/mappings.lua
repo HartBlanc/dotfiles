@@ -3,6 +3,8 @@ local gitsigns = require("gitsigns.actions")
 local map = require("utils.mappings").map
 local please = require("please")
 
+vim.g.mapleader = " "
+
 map("i", "jj", "<esc>")
 
 map("i", "II", "<esc>I")
@@ -57,4 +59,6 @@ map("n", "<leader>pj", please.jump_to_target)
 map("n", "<leader>pb", please.build)
 map("n", "<leader>pr", please.run)
 map("n", "<leader>pt", please.test)
-map("n", "<leader>ptc", please.test_under_cursor)
+map("n", "<leader>pct", function()
+	require("please").test({ under_cursor = true })
+end)

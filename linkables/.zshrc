@@ -90,6 +90,7 @@ export HISTFILE=~/.zsh_history
 # ALIASES
 
 alias d="cd ~/.dotfiles"
+alias oops="git add --update && git commit -v --no-edit --amend"
 
 # replace ls with a more modern replacement (install with brew)
 alias ls="exa --classify "
@@ -111,8 +112,12 @@ function gcb {
     fi
 
     if [ "$BRANCH" ]; then
-        git checkout $BRANCH
+        git checkout $(echo $BRANCH | sed 's/^ *//g')
     fi
+}
+
+function qf {
+    nvim -q <(rg --column --pcre2 $@) +":copen"
 }
 
 # FZF
@@ -154,6 +159,9 @@ bindkey "^[OB" history-beginning-search-forward
 
 # PROMPT - see ~/.config/starship.toml for config
 eval "$(starship init zsh)"
+
+# set tab width to 4 for stdout
+tabs -4
 
 # source local .zshrc
 source ~/.zsh/.zshrc
