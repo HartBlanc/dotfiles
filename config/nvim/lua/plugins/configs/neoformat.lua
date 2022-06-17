@@ -3,6 +3,8 @@ local file_types_utils = require("utils.file_types")
 vim.g.neoformat_enabled_python = { "black" }
 vim.g.neoformat_enabled_lua = { "stylua" }
 vim.g.neoformat_enabled_go = { "goimports" }
+vim.g.neoformat_enabled_javascript = { "prettier" }
+vim.g.neoformat_try_node_exe = 1
 
 local auto_formatting_enabled = true
 

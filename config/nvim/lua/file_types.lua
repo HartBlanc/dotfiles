@@ -30,4 +30,9 @@ file_types_utils.setup({
 		text_width = 100,
 		format_on_save = true,
 	},
+    javascript = {
+        text_width = 80,
+		format_on_save = true,
+        tab_size = 2,
+    },
 })
