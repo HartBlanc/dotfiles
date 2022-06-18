@@ -3,7 +3,6 @@ vim.o.number = true
 vim.o.signcolumn = "number"
 vim.o.scrolloff = 5
 
-vim.o.clipboard = "unnamed"
 vim.o.mouse = "a"
 vim.o.hidden = true
 

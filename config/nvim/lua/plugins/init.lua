@@ -23,6 +23,7 @@ local plugins = {
 	"marcuscaisey/please.nvim",
 	"nvim-treesitter/playground",
 	"lambdalisue/suda.vim",
+	"vim-scripts/ReplaceWithRegister",
 	{
 		"ggandor/leap.nvim",
 		config = function()

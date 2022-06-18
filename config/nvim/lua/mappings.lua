@@ -55,10 +55,16 @@ map("n", "]c", gitsigns.next_hunk)
 map("n", "[c", gitsigns.prev_hunk)
 
 -- please.nvim
-map("n", "<leader>pj", please.jump_to_target)
-map("n", "<leader>pb", please.build)
-map("n", "<leader>pr", please.run)
-map("n", "<leader>pt", please.test)
-map("n", "<leader>pct", function()
+vim.keymap.set("n", "<leader>pj", please.jump_to_target, { silent = true })
+vim.keymap.set("n", "<leader>pb", please.build, { silent = true })
+vim.keymap.set("n", "<leader>pt", please.test, { silent = true })
+vim.keymap.set("n", "<leader>pct", function()
 	require("please").test({ under_cursor = true })
-end)
+end, { silent = true })
+vim.keymap.set("n", "<leader>pr", please.run, { silent = true })
+vim.keymap.set("n", "<leader>py", please.yank, { silent = true })
+
+-- ReplaceWithRegister
+vim.keymap.set("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
+vim.keymap.set("n", "<leader>rr", "<Plug>ReplaceWithRegisterLine")
+vim.keymap.set("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")

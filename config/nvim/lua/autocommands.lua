@@ -13,6 +13,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	desc = "Trim trailing whitespace",
 })
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.cmd("let @* = @_")
+	end,
+	group = vim.api.nvim_create_augroup("clipboard", { clear = true }),
+})
+
 -- vim.api.nvim_create_autocmd('BufWritePost', {
 --   callback = function()
 --     local job = Job:new {

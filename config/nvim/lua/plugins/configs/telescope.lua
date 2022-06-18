@@ -28,6 +28,18 @@ local custom_actions = transform_mod({
 })
 
 telescope.setup({
+	defaults = {
+		mappings = {
+			n = {
+				["<ScrollWheelUp>"] = telescope_actions.preview_scrolling_up,
+				["<ScrollWheelDown>"] = telescope_actions.preview_scrolling_down,
+			},
+			i = {
+				["<ScrollWheelUp>"] = telescope_actions.preview_scrolling_up,
+				["<ScrollWheelDown>"] = telescope_actions.preview_scrolling_down,
+			},
+		},
+	},
 	pickers = {
 		buffers = {
 			show_all_buffers = true,
