@@ -74,7 +74,7 @@ map("n", "<leader>rr", "<Plug>ReplaceWithRegisterLine")
 map("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
 
 -- leap
-map("n", "l", "<Plug>(leap-forward)")
-map("n", "L", "<Plug>(leap-backward)")
-map("x", "l", "<Plug>(leap-forward)")
-map("x", "L", "<Plug>(leap-backward)")
+map("n", "<leader>s", "<Plug>(leap-forward)")
+map("n", "<leader>S", "<Plug>(leap-backward)")
+map("x", "<leader>s", "<Plug>(leap-forward)")
+map("x", "<leader>S", "<Plug>(leap-backward)")
