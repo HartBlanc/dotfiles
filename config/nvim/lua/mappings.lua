@@ -2,6 +2,7 @@ local telescope_builtin = require("telescope.builtin")
 local gitsigns = require("gitsigns.actions")
 local map = require("utils.mappings").map
 local please = require("please")
+local leap = require("leap")
 
 vim.g.mapleader = " "
 
@@ -58,16 +59,22 @@ map("n", "]c", gitsigns.next_hunk)
 map("n", "[c", gitsigns.prev_hunk)
 
 -- please.nvim
-vim.keymap.set("n", "<leader>pj", please.jump_to_target, { silent = true })
-vim.keymap.set("n", "<leader>pb", please.build, { silent = true })
-vim.keymap.set("n", "<leader>pt", please.test, { silent = true })
-vim.keymap.set("n", "<leader>pct", function()
+map("n", "<leader>pj", please.jump_to_target, { silent = true })
+map("n", "<leader>pb", please.build, { silent = true })
+map("n", "<leader>pt", please.test, { silent = true })
+map("n", "<leader>pct", function()
 	require("please").test({ under_cursor = true })
 end, { silent = true })
-vim.keymap.set("n", "<leader>pr", please.run, { silent = true })
-vim.keymap.set("n", "<leader>py", please.yank, { silent = true })
+map("n", "<leader>pr", please.run, { silent = true })
+map("n", "<leader>py", please.yank, { silent = true })
 
 -- ReplaceWithRegister
-vim.keymap.set("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
-vim.keymap.set("n", "<leader>rr", "<Plug>ReplaceWithRegisterLine")
-vim.keymap.set("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
+map("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
+map("n", "<leader>rr", "<Plug>ReplaceWithRegisterLine")
+map("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
+
+-- leap
+map("n", "l", "<Plug>(leap-forward)")
+map("n", "L", "<Plug>(leap-backward)")
+map("x", "l", "<Plug>(leap-forward)")
+map("x", "L", "<Plug>(leap-backward)")

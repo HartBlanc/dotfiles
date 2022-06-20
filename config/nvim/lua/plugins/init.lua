@@ -16,7 +16,7 @@ local plugins = {
 	"stevearc/dressing.nvim",
 	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
-	-- "tpope/vim-surround",
+	"tpope/vim-surround",
 	"tpope/vim-fugitive",
 	"tpope/vim-unimpaired",
 	"christoomey/vim-tmux-navigator",

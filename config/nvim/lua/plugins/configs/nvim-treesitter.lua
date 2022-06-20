@@ -1,5 +1,3 @@
-require("nvim-treesitter.parsers").filetype_to_parsername.please = "python"
-
 local ts_utils = require("nvim-treesitter.ts_utils")
 local query = require("vim.treesitter.query")
 
@@ -69,19 +67,17 @@ require("nvim-treesitter.configs").setup({
 			set_jumps = true,
 			goto_next_start = {
 				["]f"] = "@function.outer",
-				["]a"] = "@parameter.outer",
+				["]a"] = "@parameter.inner",
 			},
 			goto_next_end = {
 				["]F"] = "@function.outer",
-				["]A"] = "@parameter.outer",
 			},
 			goto_previous_start = {
 				["[f"] = "@function.outer",
-				["[a"] = "@parameter.outer",
+				["[a"] = "@parameter.inner",
 			},
 			goto_previous_end = {
 				["[F"] = "@function.outer",
-				["[A"] = "@parameter.outer",
 			},
 		},
 	},
