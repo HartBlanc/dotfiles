@@ -81,6 +81,9 @@ local plugins = {
 		config = function()
 			require("plugins.configs.lualine")
 		end,
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 	{
 		"lewis6991/gitsigns.nvim",
