@@ -20,24 +20,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("clipboard", { clear = true }),
 })
 
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   callback = function()
---     local job = Job:new {
---       command = 'plz',
---       -- run in the directory of the saved file since wollemi won't run outside of a plz repo
---       args = {
---         'update-go-targets',
---         vim.fn.expand '%:p:h',
---       },
---       env = {
---         -- wollemi needs GOROOT to be set
---         GOROOT = vim.trim(vim.fn.system 'go env GOROOT'),
---         PATH = vim.fn.getenv 'PATH',
---       },
---     }
---     job:start()
---   end,
---   pattern = { '*.go' },
---   group = group,
---   desc = 'Run wollemi on parent directory of go files on save',
--- })
+vim.api.nvim_create_autocmd("BufWritePost", {
+	callback = function()
+		local job = Job:new({
+			command = "wollemi",
+			args = { "gofmt", "." },
+			-- run in the directory of the saved file since wollemi won't run outside of a plz repo
+			cwd = vim.fn.expand("%:p:h"),
+			env = {
+				-- wollemi needs GOROOT to be set
+				GOROOT = vim.trim(vim.fn.system("go env GOROOT")),
+				PATH = vim.fn.getenv("PATH"),
+			},
+		})
+		job:start()
+	end,
+	pattern = { "*.go" },
+	group = group,
+	desc = "Run wollemi on parent directory of go files on save",
+})
