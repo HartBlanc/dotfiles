@@ -16,13 +16,23 @@ sudo apt install build-essential
 sudo apt install zsh
 
 # install latest version of tmux as an appimage
-curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
-| grep "browser_download_url.*appimage" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi - \
-&& chmod u+x tmux.appimage \
-&& mv tmux.appimage /usr/local/bin/tmux
+curl -LO $(curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep browser_download_url | cut -d '"' -f 4)
+tar -xf tmux-*.tar.gz
+sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
+sudo apt-get install libevent ncurses
+cd tmux-*/
+./configure
+make && sudo make install
+cd ..
+rm -rf tmux-*
+
+# curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
+# | grep "browser_download_url.*appimage" \
+# | cut -d : -f 2,3 \
+# | tr -d \" \
+# | wget -qi - \
+# && chmod u+x tmux.appimage \
+# && mv tmux.appimage /usr/local/bin/tmux
 
 # install tmux plugin manager (you'll need to prefix-I manually to install the plugins)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
