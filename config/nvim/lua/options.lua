@@ -12,7 +12,7 @@ vim.o.tabstop = 4
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.termguicolors = false
+vim.o.termguicolors = true
 
 vim.g.did_load_filetypes = 0
 vim.g.do_filetype_lua = 1
