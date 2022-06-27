@@ -2,7 +2,7 @@ local telescope_builtin = require("telescope.builtin")
 local gitsigns = require("gitsigns.actions")
 local map = require("utils.mappings").map
 local please = require("please")
-local leap = require("leap")
+local please_popup_runner = require("please.runners.popup")
 
 vim.g.mapleader = " "
 
@@ -67,6 +67,7 @@ map("n", "<leader>pct", function()
 end, { silent = true })
 map("n", "<leader>pr", please.run, { silent = true })
 map("n", "<leader>py", please.yank, { silent = true })
+map("n", "<leader>pr", please_popup_runner.restore)
 
 -- ReplaceWithRegister
 map("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
