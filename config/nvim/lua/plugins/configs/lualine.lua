@@ -2,36 +2,35 @@ local lualine = require("lualine")
 local ts_utils = require("nvim-treesitter.ts_utils")
 local query = require("vim.treesitter.query")
 
-local value_types = { "string", "number", "true", "false", "null", "object", "array" }
-
-local jsonpath = function()
+local pathfunction = function(array_node_type)
 	local current_node = ts_utils.get_node_at_cursor()
 	local path = ""
-	local last_value
 	while current_node do
-		if current_node:type() == "pair" then
+		if current_node:type():sub(-#"pair") == "pair" then
 			local key_node = current_node:field("key")[1]:named_child(0)
 			local key = query.get_node_text(key_node, 0)
 			path = string.format(".%s%s", key, path)
-		elseif vim.tbl_contains(value_types, current_node:type()) then
-			if current_node:type() == "array" and last_value then
-				local idx = 0
-				for child in current_node:iter_children() do
-					if child:named() then
-						if child:id() == last_value:id() then
-							break
-						else
-							idx = idx + 1
-						end
-					end
-				end
-				path = string.format("[%d]%s", idx, path)
+		elseif current_node:parent() and current_node:parent():type():sub(-#array_node_type) == array_node_type then
+			local count = 0
+			local previous_sibling = ts_utils.get_previous_node(current_node)
+			while previous_sibling do
+				count = count + 1
+				previous_sibling = ts_utils.get_previous_node(previous_sibling)
 			end
-			last_value = current_node
+			path = string.format("[%d]%s", count, path)
 		end
 		current_node = current_node:parent()
 	end
 	return path
+end
+
+local lualine_path = function()
+	if vim.bo.filetype == "json" then
+		return pathfunction("array")
+	elseif vim.bo.filetype == "yaml" then
+		return pathfunction("sequence")
+	end
+	return ""
 end
 
 lualine.setup({
@@ -42,7 +41,7 @@ lualine.setup({
 				path = 1, -- relative file path
 			},
 		},
-		lualine_c = { { jsonpath } },
+		lualine_c = { { lualine_path } },
 	},
 	options = {
 		theme = "nord",

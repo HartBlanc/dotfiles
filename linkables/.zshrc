@@ -136,6 +136,11 @@ autoload -U url-quote-magic bracketed-paste-magic
 zle -N self-insert url-quote-magic
 zle -N bracketed-paste bracketed-paste-magic
 
+# NNN
+
+export NNN_PLUG="p:preview-tui"
+export NNN_FIFO="/tmp/nnn.fifo"
+
 # KEY BINDINGS
 
 # Set terminal keybindings to emacs (zsh may assume you want vim bindings if you set your editor to vim)

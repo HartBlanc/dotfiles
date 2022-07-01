@@ -11,6 +11,10 @@ map("i", "jj", "<esc>")
 map("i", "II", "<esc>I")
 map("i", "AA", "<esc>A")
 
+map("n", "<leader>tl", function()
+	vim.o.relativenumber = not vim.o.relativenumber
+end)
+
 -- telescope.nvim
 map("n", "<c-p>", telescope_builtin.find_files)
 map("n", "<m-p>", function()
@@ -67,7 +71,7 @@ map("n", "<leader>pct", function()
 end, { silent = true })
 map("n", "<leader>pr", please.run, { silent = true })
 map("n", "<leader>py", please.yank, { silent = true })
-map("n", "<leader>pr", please_popup_runner.restore)
+map("n", "<leader>pp", please_popup_runner.restore)
 
 -- ReplaceWithRegister
 map("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
@@ -85,3 +89,5 @@ map("n", "<leader>Y", function()
 	vim.cmd('let @* = @"')
 	vim.cmd('OSCYankReg "')
 end)
+
+map("n", "<leader>n", ":NnnPicker %:p<cr>")

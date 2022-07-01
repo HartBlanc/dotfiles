@@ -24,6 +24,18 @@ local plugins = {
 	"nvim-treesitter/playground",
 	"lambdalisue/suda.vim",
 	"vim-scripts/ReplaceWithRegister",
+	"svban/YankAssassin.vim",
+	{
+		"luukvbaal/nnn.nvim",
+		config = function()
+			require("nnn").setup({
+				picker = {
+					cmd = "tmux new-session nnn -d -Pp",
+					quitcd = "lcd",
+				},
+			})
+		end,
+	},
 	{
 		"ggandor/leap.nvim",
 		config = function()
@@ -88,6 +100,9 @@ local plugins = {
 	{
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
