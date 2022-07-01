@@ -92,7 +92,7 @@ export HISTFILE=~/.zsh_history
 alias d="cd ~/.dotfiles"
 alias oops="git add --update && git commit -v --no-edit --amend"
 
-# replace ls with a more modern replacement (install with brew)
+# replace ls with a more modern replacement
 alias ls="exa --classify "
 alias la="exa --classify --all"
 alias ll="exa --header --classify --all --long"
@@ -131,6 +131,8 @@ export FZF_COMPLETION_TRIGGER='~~'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export BAT_THEME="Nord"
+
 # URL ESCAPING
 autoload -U url-quote-magic bracketed-paste-magic
 zle -N self-insert url-quote-magic
@@ -138,8 +140,14 @@ zle -N bracketed-paste bracketed-paste-magic
 
 # NNN
 
-export NNN_PLUG="p:preview-tui"
+export NNN_PLUG="p:preview-tui;f:fzcd"
 export NNN_FIFO="/tmp/nnn.fifo"
+source ~/.config/nnn/quitcd.bash_zsh
+
+# nord theme for nnn
+# https://github.com/jarun/nnn/wiki/Themes
+BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 
 # KEY BINDINGS
 
