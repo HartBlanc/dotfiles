@@ -1,8 +1,11 @@
+require("Comment").setup()
+
 -- Set the comment characters for the given filetypes
 local comment_characters = {
 	sql = "--",
 	toml = "#",
 	please = "#",
+	proto = "//",
 }
 
 -- Add comment character autocmds

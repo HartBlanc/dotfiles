@@ -20,11 +20,26 @@ local plugins = {
 	"tpope/vim-fugitive",
 	"tpope/vim-unimpaired",
 	"christoomey/vim-tmux-navigator",
-	"marcuscaisey/please.nvim",
 	"nvim-treesitter/playground",
 	"lambdalisue/suda.vim",
 	"vim-scripts/ReplaceWithRegister",
 	"svban/YankAssassin.vim",
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+		requires = {
+			"tami5/sqlite.lua",
+			"nvim-telescope/telescope.nvim",
+		},
+	},
+	{
+		"marcuscaisey/please.nvim",
+		requires = {
+			"mfussenegger/nvim-dap",
+		},
+	},
 	{
 		"luukvbaal/nnn.nvim",
 		config = function()
@@ -66,7 +81,7 @@ local plugins = {
 		end,
 		requires = {
 			"neovim/nvim-lspconfig",
-			"folke/lua-dev.nvim",
+			"folke/neodev.nvim",
 		},
 	},
 	{
@@ -118,9 +133,9 @@ local plugins = {
 		},
 	},
 	{
-		"tpope/vim-commentary",
+		"numToStr/Comment.nvim",
 		config = function()
-			require("plugins.configs.vim-commentary")
+			require("plugins.configs.Comment")
 		end,
 	},
 	{

@@ -1,3 +1,5 @@
+source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 # The clang python binding searches for header files in /usr/include by default.
 # MacOS System Integrity Protection prevents the cration of /usr/include (even by root).
 # Updating CPATH tells the clang python binding where to find the C headers.
@@ -18,7 +20,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 if whence brew >/dev/null; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    zvm_after_init_commands+=('source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh')
 fi
 
 # set default editor to neovim (used for e.g. commit messages)
@@ -88,7 +90,7 @@ export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 
 # ALIASES
-
+alias t="tmux new-session -A -s main"
 alias d="cd ~/.dotfiles"
 alias oops="git add --update && git commit -v --no-edit --amend"
 
@@ -117,8 +119,13 @@ function gcb {
     fi
 }
 
+alias gc-='git checkout -'
+alias gcm='git checkout master'
+alias gc@='git checkout @{u}'
+alias gs='git status'
+
 function qf {
-    nvim -q <(rg --column --pcre2 $@) +":copen"
+    nvim -q <(rg --column $@) +":copen"
 }
 
 # FZF
@@ -129,7 +136,8 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 # Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='~~'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
 
 export BAT_THEME="Nord"
 
@@ -174,23 +182,18 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 
 # Set terminal keybindings to emacs (zsh may assume you want vim bindings if you set your editor to vim)
 # This must be done before other keybindings otherwise other bindings will be overwritten in tmux
-bindkey -e
 
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
-# Emacs style
 zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
+zvm_after_init_commands+=('bindkey "^xe" edit-command-line')
+zvm_after_init_commands+=('bindkey "^x^e" edit-command-line')
 
-# Up key searches backwards
-bindkey "^[[A" history-beginning-search-backward
-# alternative ('application mode') Up key - present in different set ups
-bindkey "^[OA" history-beginning-search-backward
-# Down key searches forwards
-bindkey "^[[B" history-beginning-search-forward
-# alternative ('application mode') Down key - present in different set ups
-bindkey "^[OB" history-beginning-search-forward
+zvm_after_init_commands+=('bindkey "^p" history-beginning-search-backward')
+zvm_after_init_commands+=('bindkey "^n" history-beginning-search-forward')
+
+zvm_after_init_commands+=('bindkey "^ " autosuggest-accept')
+
 
 # PROMPT - see ~/.config/starship.toml for config
 eval "$(starship init zsh)"

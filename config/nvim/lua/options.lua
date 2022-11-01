@@ -14,6 +14,3 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.o.termguicolors = true
-
-vim.g.did_load_filetypes = 0
-vim.g.do_filetype_lua = 1

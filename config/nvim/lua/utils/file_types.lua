@@ -38,6 +38,17 @@ local function add_indent_with_tabs_autocmd(file_type)
 	})
 end
 
+local function enable_spellcheck(file_type)
+	vim.api.nvim_create_autocmd("FileType", {
+		callback = function()
+			vim.cmd("setlocal spell")
+		end,
+		pattern = file_type,
+		group = augroup,
+		desc = "Turn spellcheck on",
+	})
+end
+
 M.auto_format_file_types = {}
 
 M.setup = function(opts)
@@ -58,6 +69,9 @@ M.setup = function(opts)
 
 		if settings.format_on_save then
 			M.auto_format_file_types[file_type] = true
+		end
+		if settings.spellcheck then
+			enable_spellcheck(file_type)
 		end
 	end
 end

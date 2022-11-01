@@ -3,6 +3,7 @@ local gitsigns = require("gitsigns.actions")
 local map = require("utils.mappings").map
 local please = require("please")
 local please_popup_runner = require("please.runners.popup")
+local neoformat = require("plugins.configs.neoformat")
 
 vim.g.mapleader = " "
 
@@ -61,6 +62,24 @@ map("n", "<leader>gb", "<cmd>:Git blame<cr>")
 -- gitsigns.nvim
 map("n", "]c", gitsigns.next_hunk)
 map("n", "[c", gitsigns.prev_hunk)
+map("n", "<leader>gc", function()
+	vim.fn.system("git diff --quiet")
+	if vim.v.shell_error == 0 then
+		print("No Git changes")
+		vim.cmd("cclose")
+		return
+	end
+
+	vim.fn.setqflist({})
+	gitsigns.setqflist("all", { open = false })
+	-- wait for quickfix list to have items in before opening
+	vim.wait(5000, function()
+		local qf_items = vim.fn.getqflist()
+		return #qf_items > 0
+	end)
+	vim.cmd("copen")
+	vim.cmd("cfirst")
+end)
 
 -- please.nvim
 map("n", "<leader>pj", please.jump_to_target, { silent = true })
@@ -91,3 +110,13 @@ map("n", "<leader>Y", function()
 end)
 
 map("n", "<leader>n", ":NnnPicker %:p<cr>")
+
+-- '/' text objects
+map("o", "i/", ":<C-U>normal! T/vt/<CR>")
+map("o", "a/", ":<C-U>normal! F/vt/<CR>")
+map("v", "i/", ":<C-U>normal! T/vt/<CR>")
+map("v", "a/", ":<C-U>normal! F/vt/<CR>")
+
+-- neoformat
+map("n", "<leader>fm", "<cmd>Neoformat<cr>")
+map("n", "<leader>ft", neoformat.toggle_auto_neoformatting)

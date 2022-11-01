@@ -29,10 +29,14 @@ file_types_utils.setup({
 	proto = {
 		text_width = 100,
 		format_on_save = true,
+		spellcheck = true,
 	},
 	javascript = {
 		text_width = 80,
 		format_on_save = true,
 		tab_size = 2,
+	},
+	gitcommit = {
+		spellcheck = true,
 	},
 })
