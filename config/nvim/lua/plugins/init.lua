@@ -24,6 +24,7 @@ local plugins = {
 	"lambdalisue/suda.vim",
 	"vim-scripts/ReplaceWithRegister",
 	"svban/YankAssassin.vim",
+	"https://gitlab.com/yorickpeterse/nvim-pqf.git",
 	{
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
