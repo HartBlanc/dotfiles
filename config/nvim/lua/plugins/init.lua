@@ -30,7 +30,7 @@ local plugins = {
 			require("telescope").load_extension("frecency")
 		end,
 		requires = {
-			"tami5/sqlite.lua",
+			"kkharji/sqlite.lua",
 			"nvim-telescope/telescope.nvim",
 		},
 	},
