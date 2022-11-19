@@ -1,4 +1,8 @@
-source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+if whence brew >/dev/null; then
+    source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+else
+    source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+fi
 
 # The clang python binding searches for header files in /usr/include by default.
 # MacOS System Integrity Protection prevents the cration of /usr/include (even by root).
@@ -18,7 +22,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # source extensions
 if whence brew >/dev/null; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    zvm_after_init_commands+=('source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh')
 else
     zvm_after_init_commands+=('source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh')
 fi
