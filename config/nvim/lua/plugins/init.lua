@@ -27,6 +27,12 @@ local plugins = {
 	"michaeljsmith/vim-indent-object",
 	"https://gitlab.com/yorickpeterse/nvim-pqf.git",
 	{
+		"is0n/fm-nvim",
+		config = function()
+			require("plugins.configs.fm-nvim")
+		end,
+	},
+	{
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
 			require("telescope").load_extension("frecency")
@@ -41,17 +47,6 @@ local plugins = {
 		requires = {
 			"mfussenegger/nvim-dap",
 		},
-	},
-	{
-		"luukvbaal/nnn.nvim",
-		config = function()
-			require("nnn").setup({
-				picker = {
-					cmd = "tmux new-session nnn -d -Pp",
-					quitcd = "lcd",
-				},
-			})
-		end,
 	},
 	{
 		"ggandor/leap.nvim",

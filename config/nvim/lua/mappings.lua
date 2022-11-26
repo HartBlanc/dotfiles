@@ -109,7 +109,7 @@ map("n", "<leader>Y", function()
 	vim.cmd('OSCYankReg "')
 end)
 
-map("n", "<leader>n", ":NnnPicker %:p<cr>")
+map("n", "<leader>n", ":Vifm %:p:h<cr>")
 
 -- '/' text objects
 map("o", "i/", ":<C-U>normal! T/vt/<CR>")
