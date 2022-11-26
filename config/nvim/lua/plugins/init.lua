@@ -24,6 +24,7 @@ local plugins = {
 	"lambdalisue/suda.vim",
 	"vim-scripts/ReplaceWithRegister",
 	"svban/YankAssassin.vim",
+	"michaeljsmith/vim-indent-object",
 	{
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
