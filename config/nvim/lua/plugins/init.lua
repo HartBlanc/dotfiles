@@ -25,13 +25,14 @@ local plugins = {
 	"vim-scripts/ReplaceWithRegister",
 	"svban/YankAssassin.vim",
 	"michaeljsmith/vim-indent-object",
+	"https://gitlab.com/yorickpeterse/nvim-pqf.git",
 	{
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
 			require("telescope").load_extension("frecency")
 		end,
 		requires = {
-			"tami5/sqlite.lua",
+			"kkharji/sqlite.lua",
 			"nvim-telescope/telescope.nvim",
 		},
 	},

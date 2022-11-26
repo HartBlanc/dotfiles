@@ -15,7 +15,7 @@ sudo apt install build-essential
 # required to link dotfiles in and just so we have the shell...
 sudo apt install zsh
 
-# install latest version of tmux as an appimage
+# build latest version of tmux from source
 curl -LO $(curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep browser_download_url | cut -d '"' -f 4)
 tar -xf tmux-*.tar.gz
 sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
@@ -25,14 +25,6 @@ cd tmux-*/
 make && sudo make install
 cd ..
 rm -rf tmux-*
-
-# curl -s https://api.github.com/repos/nelsonenzo/tmux-appimage/releases/latest \
-# | grep "browser_download_url.*appimage" \
-# | cut -d : -f 2,3 \
-# | tr -d \" \
-# | wget -qi - \
-# && chmod u+x tmux.appimage \
-# && mv tmux.appimage /usr/local/bin/tmux
 
 # install tmux plugin manager (you'll need to prefix-I manually to install the plugins)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -120,3 +120,36 @@ map("v", "a/", ":<C-U>normal! F/vt/<CR>")
 -- neoformat
 map("n", "<leader>fm", "<cmd>Neoformat<cr>")
 map("n", "<leader>ft", neoformat.toggle_auto_neoformatting)
+
+-- colemak
+map({ "n", "v" }, "n", "j")
+map({ "n", "v" }, "e", "k")
+map({ "n", "v" }, "i", "l")
+
+map({ "n", "v" }, "j", "e")
+map({ "n", "v" }, "k", "n")
+map({ "n", "v" }, "l", "i")
+
+local colemak = true
+
+map("n", "<leader>c", function()
+	if colemak then
+		vim.keymap.del({ "n", "v" }, "n")
+		vim.keymap.del({ "n", "v" }, "e")
+		vim.keymap.del({ "n", "v" }, "i")
+
+		vim.keymap.del({ "n", "v" }, "j")
+		vim.keymap.del({ "n", "v" }, "k")
+		vim.keymap.del({ "n", "v" }, "l")
+		colemak = false
+	else
+		map({ "n", "v" }, "n", "j")
+		map({ "n", "v" }, "e", "k")
+		map({ "n", "v" }, "i", "l")
+
+		map({ "n", "v" }, "j", "e")
+		map({ "n", "v" }, "k", "n")
+		map({ "n", "v" }, "l", "i")
+		colemak = true
+	end
+end)
