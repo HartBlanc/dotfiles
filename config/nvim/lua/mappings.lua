@@ -97,12 +97,6 @@ map("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
 map("n", "<leader>rr", "<Plug>ReplaceWithRegisterLine")
 map("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
 
--- leap
-map("n", "<leader>s", "<Plug>(leap-forward)")
-map("n", "<leader>S", "<Plug>(leap-backward)")
-map("x", "<leader>s", "<Plug>(leap-forward)")
-map("x", "<leader>S", "<Plug>(leap-backward)")
-
 map("n", "<leader>Y", function()
 	vim.cmd("let @\" = expand('%:p')")
 	vim.cmd('let @* = @"')
