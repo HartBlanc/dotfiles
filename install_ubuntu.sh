@@ -50,5 +50,5 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimag
 # install starship prompt
 curl -sS https://starship.rs/install.sh | sh
 
-zsh ~/.dotfiles/link.zsh
+~/.dotfiles/link.sh
 chsh -s $(which zsh)

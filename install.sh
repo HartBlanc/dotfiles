@@ -9,4 +9,4 @@ git clone https://github.com/HartBlanc/dotfiles.git ~/.dotfiles
 
 brew bundle --file=~/.dotfiles/Brewfile
 
-zsh ~/.dotfiles/link.zsh
+~/.dotfiles/link.sh

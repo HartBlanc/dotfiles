@@ -13,4 +13,4 @@ vim.keymap.set("n", "ySS", "<Plug>YSsurround")
 -- _does_ work in Visual mode, if jumping to the same buffer,
 -- so in theory, `gs` could be useful for Leap too...
 vim.keymap.set("x", "gs", "<Plug>VSurround")
-vim.keymap.set("x", "gS", "<Plug>VgSurround")("abc")
+vim.keymap.set("x", "gS", "<Plug>VgSurround")
