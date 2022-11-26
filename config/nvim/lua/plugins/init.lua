@@ -16,7 +16,6 @@ local plugins = {
 	"stevearc/dressing.nvim",
 	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
-	"tpope/vim-surround",
 	"tpope/vim-fugitive",
 	"tpope/vim-unimpaired",
 	"christoomey/vim-tmux-navigator",
@@ -26,6 +25,12 @@ local plugins = {
 	"svban/YankAssassin.vim",
 	"michaeljsmith/vim-indent-object",
 	"https://gitlab.com/yorickpeterse/nvim-pqf.git",
+	{
+		"tpope/vim-surround",
+		config = function()
+			require("plugins.configs.vim-surround")
+		end,
+	},
 	{
 		"is0n/fm-nvim",
 		config = function()
@@ -51,7 +56,7 @@ local plugins = {
 	{
 		"ggandor/leap.nvim",
 		config = function()
-			require("leap").set_default_keymaps()
+			require("leap").add_default_mappings()
 		end,
 	},
 	{

@@ -103,6 +103,7 @@ map("n", "<leader>Y", function()
 	vim.cmd('OSCYankReg "')
 end)
 
+-- Vifm
 map("n", "<leader>n", ":Vifm %:p:h<cr>")
 
 -- '/' text objects
