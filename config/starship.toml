@@ -1,7 +1,7 @@
 format = """[│](bold cyan)$directory$git_branch$git_status
 [└─❯](bold cyan) """
 
-right_format = "[$time$cmd_duration$status$kubernetes](bold cyan)"
+right_format = "[$time$cmd_duration$status$kubernetes$env_var](bold cyan)"
 
 [kubernetes]
 disabled = false
@@ -36,3 +36,6 @@ format = "[$path/](bold cyan)[$read_only]($read_only_style) "
 [cmd_duration]
 format = " $duration"
 
+[env_var.PLZ_CONFIG_PROFILE]
+format = ' $symbol\($env_value\)'
+symbol = '∆'
