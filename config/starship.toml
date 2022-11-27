@@ -1,22 +1,22 @@
-format = """[│](bold cyan)$directory$git_branch$git_status
-[└─❯](bold cyan) """
+format = """[│$directory$git_branch$git_status
+└─❯](bold cyan) """
 
 right_format = "[$time$cmd_duration$status$kubernetes$env_var](bold cyan)"
 
 [kubernetes]
 disabled = false
-format = ' [$symbol$context( \($namespace\))](bold cyan)'
+format = ' $symbol[\[c\($context\)n\($namespace\))\]](cyan)'
 
 [time]
-format = "[$time](bold cyan)"
+format = "$time"
 disabled = false
 
 [status]
-format = " [$symbol$status](bold cyan)"
+format = " $symbol$status"
 disabled = false
 
 [git_branch]
-format = "[on](cyan) [$branch](bold cyan)"
+format = "[on](cyan) $branch"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]](cyan))'
@@ -31,11 +31,11 @@ renamed = '»\($count\)'
 deleted = '✘\($count\)'
 
 [directory]
-format = "[$path/](bold cyan)[$read_only]($read_only_style) "
+format = "$path/[$read_only]($read_only_style) "
 
 [cmd_duration]
 format = " $duration"
 
 [env_var.PLZ_CONFIG_PROFILE]
-format = ' $symbol\($env_value\)'
+format = ' $symbol[\[$env_value\]](cyan)'
 symbol = '∆'
