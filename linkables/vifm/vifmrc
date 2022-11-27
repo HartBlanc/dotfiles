@@ -165,6 +165,8 @@ command! reload :write | restart full
 
 fileviewer *[^/] bat --color always --wrap never --pager never %c -p
 
+fileviewer {*/,.*/} exa --classify --all --tree --level=2 --color always %c
+
 " Pdf
 filetype {*.pdf},<application/pdf>
        \ {Open in Preview}
