@@ -123,6 +123,7 @@ map({ "n", "v" }, "i", "l")
 
 map({ "n", "v" }, "j", "e")
 map({ "n", "v" }, "k", "n")
+map({ "n", "v" }, "K", "N")
 map({ "n", "v" }, "l", "i")
 
 local colemak = true
@@ -135,6 +136,7 @@ map("n", "<leader>c", function()
 
 		vim.keymap.del({ "n", "v" }, "j")
 		vim.keymap.del({ "n", "v" }, "k")
+		vim.keymap.del({ "n", "v" }, "K")
 		vim.keymap.del({ "n", "v" }, "l")
 		colemak = false
 	else
@@ -144,6 +146,7 @@ map("n", "<leader>c", function()
 
 		map({ "n", "v" }, "j", "e")
 		map({ "n", "v" }, "k", "n")
+		map({ "n", "v" }, "K", "N")
 		map({ "n", "v" }, "l", "i")
 		colemak = true
 	end

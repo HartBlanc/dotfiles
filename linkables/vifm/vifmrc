@@ -162,6 +162,9 @@ command! reload :write | restart full
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
+
+fileviewer *[^/] bat --color always --wrap never --pager never %c -p
+
 " Pdf
 filetype {*.pdf},<application/pdf>
        \ {Open in Preview}
@@ -314,6 +317,7 @@ fileviewer {*.docx},
 "
 " fileviewer *.jpg,*.png shellpic %c
 
+
 " Open all other files with default system programs (you can also remove all
 " :file[x]type commands above to ensure they don't interfere with system-wide
 " settings).  By default all unknown files are opened with 'vi[x]cmd'
@@ -436,6 +440,7 @@ nnoremap i l
 
 nnoremap j e
 nnoremap k n
+nnoremap K N
 nnoremap l i
 
 vnoremap n j
@@ -444,6 +449,16 @@ vnoremap i l
 
 vnoremap j e
 vnoremap k n
+vnoremap K N
 vnoremap l i
+
+qnoremap n j
+qnoremap e k
+qnoremap i l
+
+qnoremap j e
+qnoremap k n
+qnoremap K N
+qnoremap l i
 
 nnoremap . za
