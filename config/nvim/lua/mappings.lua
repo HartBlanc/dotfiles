@@ -50,7 +50,7 @@ map("n", "fd", function()
 end)
 
 -- lsp
-map("n", "K", vim.lsp.buf.hover)
+map("n", "E", vim.lsp.buf.hover)
 map("n", "<leader>rn", vim.lsp.buf.rename)
 map("n", "]d", vim.diagnostic.goto_next)
 map("n", "[d", vim.diagnostic.goto_prev)

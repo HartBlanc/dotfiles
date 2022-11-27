@@ -462,3 +462,5 @@ qnoremap K N
 qnoremap l i
 
 nnoremap . za
+
+colors nord
