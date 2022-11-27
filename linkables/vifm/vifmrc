@@ -446,3 +446,4 @@ vnoremap j e
 vnoremap k n
 vnoremap l i
 
+nnoremap . za
