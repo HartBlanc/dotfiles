@@ -126,6 +126,13 @@ map({ "n", "v" }, "k", "n")
 map({ "n", "v" }, "K", "N")
 map({ "n", "v" }, "l", "i")
 
+vim.g["tmux_navigator_no_mappings"] = 1
+
+map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>")
+map("n", "<c-n>", "<cmd>:TmuxNavigateDown<cr>")
+map("n", "<c-e>", "<cmd>:TmuxNavigateUp<cr>")
+map("n", "<c-i>", "<cmd>:TmuxNavigateRight<cr>")
+
 local colemak = true
 
 map("n", "<leader>c", function()
@@ -138,6 +145,11 @@ map("n", "<leader>c", function()
 		vim.keymap.del({ "n", "v" }, "k")
 		vim.keymap.del({ "n", "v" }, "K")
 		vim.keymap.del({ "n", "v" }, "l")
+
+		map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>")
+		map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>")
+		map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>")
+		map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>")
 		colemak = false
 	else
 		map({ "n", "v" }, "n", "j")
@@ -148,6 +160,11 @@ map("n", "<leader>c", function()
 		map({ "n", "v" }, "k", "n")
 		map({ "n", "v" }, "K", "N")
 		map({ "n", "v" }, "l", "i")
+
+		map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>")
+		map("n", "<c-n>", "<cmd>:TmuxNavigateDown<cr>")
+		map("n", "<c-e>", "<cmd>:TmuxNavigateUp<cr>")
+		map("n", "<c-i>", "<cmd>:TmuxNavigateRight<cr>")
 		colemak = true
 	end
 end)
