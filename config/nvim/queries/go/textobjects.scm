@@ -4,11 +4,7 @@
 
 (keyed_element
   (literal_element)
-  (literal_element) @literal_value.inner)
-
-(keyed_element
-  (literal_element)
-  (literal_element) ) @literal_value.outer
+  (literal_element) @literal_value.inner) @literal_value.outer
 
 ; slice values
 
@@ -21,3 +17,7 @@
   . (literal_element) @literal_value.inner
   . ","? @_end
   (#make-range! "literal_value.outer" @literal_value.inner @_end))
+
+; right side of expression
+
+right: (expression_list) @value.inner @value.outer

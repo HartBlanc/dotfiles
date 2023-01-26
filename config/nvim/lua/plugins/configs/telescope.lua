@@ -27,16 +27,29 @@ local custom_actions = transform_mod({
 	end,
 })
 
+local send_selected_or_all_to_qf = function(prompt_bufnr)
+	local picker = state.get_current_picker(prompt_bufnr)
+	for _, _ in ipairs(picker:get_multi_selection()) do
+		telescope_actions.send_selected_to_qflist(prompt_bufnr)
+		telescope_actions.open_qflist(prompt_bufnr)
+		return
+	end
+	telescope_actions.send_to_qflist(prompt_bufnr)
+	telescope_actions.open_qflist(prompt_bufnr)
+end
+
 telescope.setup({
 	defaults = {
 		mappings = {
 			n = {
 				["<ScrollWheelUp>"] = telescope_actions.preview_scrolling_up,
 				["<ScrollWheelDown>"] = telescope_actions.preview_scrolling_down,
+				["<C-q>"] = send_selected_or_all_to_qf,
 			},
 			i = {
 				["<ScrollWheelUp>"] = telescope_actions.preview_scrolling_up,
 				["<ScrollWheelDown>"] = telescope_actions.preview_scrolling_down,
+				["<C-q>"] = send_selected_or_all_to_qf,
 			},
 		},
 	},

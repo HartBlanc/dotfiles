@@ -17,14 +17,8 @@ map("n", "<leader>tl", function()
 end)
 
 -- telescope.nvim
-map("n", "<c-p>", telescope_builtin.find_files)
-map("n", "<m-p>", function()
-	telescope_builtin.find_files({ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] })
-end)
-map("n", "<c-f>", telescope_builtin.live_grep)
-map("n", "<m-f>", function()
-	telescope_builtin.live_grep({ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] })
-end)
+map("n", "<c-f>", telescope_builtin.find_files)
+map("n", "<c-g>", telescope_builtin.live_grep)
 map("n", "ff", telescope_builtin.current_buffer_fuzzy_find)
 map("n", "fb", telescope_builtin.buffers)
 map("n", "fo", telescope_builtin.oldfiles)
@@ -88,6 +82,9 @@ map("n", "<leader>pt", please.test, { silent = true })
 map("n", "<leader>pct", function()
 	require("please").test({ under_cursor = true })
 end, { silent = true })
+map("n", "<leader>plt", function()
+	require("please").test({ list = true })
+end)
 map("n", "<leader>pr", please.run, { silent = true })
 map("n", "<leader>py", please.yank, { silent = true })
 map("n", "<leader>pp", please_popup_runner.restore)
@@ -126,13 +123,6 @@ map({ "n", "v" }, "k", "n")
 map({ "n", "v" }, "K", "N")
 map({ "n", "v" }, "l", "i")
 
-vim.g["tmux_navigator_no_mappings"] = 1
-
-map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>")
-map("n", "<c-n>", "<cmd>:TmuxNavigateDown<cr>")
-map("n", "<c-e>", "<cmd>:TmuxNavigateUp<cr>")
-map("n", "<c-i>", "<cmd>:TmuxNavigateRight<cr>")
-
 local colemak = true
 
 map("n", "<leader>c", function()
@@ -146,10 +136,6 @@ map("n", "<leader>c", function()
 		vim.keymap.del({ "n", "v" }, "K")
 		vim.keymap.del({ "n", "v" }, "l")
 
-		map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>")
-		map("n", "<c-j>", "<cmd>:TmuxNavigateDown<cr>")
-		map("n", "<c-k>", "<cmd>:TmuxNavigateUp<cr>")
-		map("n", "<c-l>", "<cmd>:TmuxNavigateRight<cr>")
 		colemak = false
 	else
 		map({ "n", "v" }, "n", "j")
@@ -161,10 +147,8 @@ map("n", "<leader>c", function()
 		map({ "n", "v" }, "K", "N")
 		map({ "n", "v" }, "l", "i")
 
-		map("n", "<c-h>", "<cmd>:TmuxNavigateLeft<cr>")
-		map("n", "<c-n>", "<cmd>:TmuxNavigateDown<cr>")
-		map("n", "<c-e>", "<cmd>:TmuxNavigateUp<cr>")
-		map("n", "<c-i>", "<cmd>:TmuxNavigateRight<cr>")
 		colemak = true
 	end
 end)
+
+map("n", "<leader>ut", "<cmd>:UndotreeToggle<cr>")

@@ -33,9 +33,9 @@ end
 
 local function mappings()
 	-- write cwd to /tmp/vifm before exiting vifm so that it can be read by on_close to change the directory
-	vim.api.nvim_buf_set_keymap(0, "t", "<c-g>", ":execute ':!echo %d > /tmp/vifm-cd'<cr>:q<cr>", { silent = true })
-	vim.api.nvim_buf_set_keymap(0, "t", "<c-f>", ":execute ':!echo %d > /tmp/vifm-grep'<cr>:q<cr>", { silent = true })
-	vim.api.nvim_buf_set_keymap(0, "t", "<c-p>", ":execute ':!echo %d > /tmp/vifm-files'<cr>:q<cr>", { silent = true })
+	vim.api.nvim_buf_set_keymap(0, "t", "<c-d>", ":execute ':!echo %d > /tmp/vifm-cd'<cr>:q<cr>", { silent = true })
+	vim.api.nvim_buf_set_keymap(0, "t", "<c-g>", ":execute ':!echo %d > /tmp/vifm-grep'<cr>:q<cr>", { silent = true })
+	vim.api.nvim_buf_set_keymap(0, "t", "<c-f>", ":execute ':!echo %d > /tmp/vifm-files'<cr>:q<cr>", { silent = true })
 
 	-- make ctrl-v close the file manager and open the file in a split pane. The default behaviour is to only
 	-- open the split pane once the file manager has been closed manually by the user.

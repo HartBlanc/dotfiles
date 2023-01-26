@@ -1,7 +1,7 @@
-format = """[│$directory$git_branch$git_status
+format = """[│$directory$git_branch$env_var
 └─❯](bold cyan) """
 
-right_format = "[$time$cmd_duration$status$kubernetes$env_var](bold cyan)"
+right_format = "[$time$cmd_duration$status$kubernetes](bold cyan)"
 
 [kubernetes]
 disabled = false
@@ -18,24 +18,17 @@ disabled = false
 [git_branch]
 format = "[on](cyan) $branch"
 
-[git_status]
-format = '([\[$all_status$ahead_behind\]](cyan))'
-conflicted = '!\($count\)'
-ahead = '⇡\($count\)'
-behind = '⇣\($count\)'
-diverged = '⇡\($ahead_count\)⇣\($behind_count\)'
-untracked = '?\($count\)'
-modified = '+\($count\)'
-staged = '✓\($count\)'
-renamed = '»\($count\)'
-deleted = '✘\($count\)'
-
 [directory]
 format = "$path/[$read_only]($read_only_style) "
 
 [cmd_duration]
 format = " $duration"
 
-[env_var.PLZ_CONFIG_PROFILE]
-format = ' $symbol[\[$env_value\]](cyan)'
-symbol = '∆'
+# [env_var.PLZ_CONFIG_PROFILE]
+# format = ' $symbol[\[$env_value\]](cyan)'
+# symbol = '∆'
+
+[env_var.GSD_BRANCH_STATUS]
+format="[$env_value](cyan)"
+[env_var.GSD_STATUS]
+format="[$env_value](cyan)"

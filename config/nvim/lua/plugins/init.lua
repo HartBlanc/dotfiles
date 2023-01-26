@@ -13,18 +13,23 @@ end
 
 local plugins = {
 	"wbthomason/packer.nvim",
-	"stevearc/dressing.nvim",
 	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
 	"tpope/vim-fugitive",
 	"tpope/vim-unimpaired",
-	"christoomey/vim-tmux-navigator",
 	"nvim-treesitter/playground",
 	"lambdalisue/suda.vim",
 	"vim-scripts/ReplaceWithRegister",
 	"svban/YankAssassin.vim",
 	"michaeljsmith/vim-indent-object",
+	"mbbill/undotree",
 	"https://gitlab.com/yorickpeterse/nvim-pqf.git",
+	{
+		"chaoren/vim-wordmotion",
+		config = function()
+			require("plugins.configs.vim-wordmotion")
+		end,
+	},
 	{
 		"tpope/vim-surround",
 		config = function()
@@ -57,12 +62,6 @@ local plugins = {
 		"ggandor/leap.nvim",
 		config = function()
 			require("leap").add_default_mappings()
-		end,
-	},
-	{
-		"bkad/camelcasemotion",
-		config = function()
-			require("plugins.configs.camelcasemotion")
 		end,
 	},
 	{
@@ -162,6 +161,12 @@ local plugins = {
 		"shaunsingh/nord.nvim",
 		config = function()
 			require("plugins.configs.nord")
+		end,
+	},
+	{
+		"stevearc/dressing.nvim",
+		config = function()
+			require("plugins.configs.dressing")
 		end,
 	},
 }

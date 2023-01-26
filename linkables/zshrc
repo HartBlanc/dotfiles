@@ -25,6 +25,7 @@ if whence brew >/dev/null; then
     zvm_after_init_commands+=('source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh')
 else
     zvm_after_init_commands+=('source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh')
+    source ~/.zsh/gitstatus-prompt.zsh
 fi
 
 # set default editor to neovim (used for e.g. commit messages)
@@ -127,6 +128,9 @@ alias gc-='git checkout -'
 alias gcm='git checkout master'
 alias gc@='git checkout @{u}'
 alias gs='git status'
+alias gap='git add . --patch'
+alias gd='git diff @{u}'
+alias gp='git pull'
 
 function qf {
     nvim -q <(rg --column $@) +":copen"

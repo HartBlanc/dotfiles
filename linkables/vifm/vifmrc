@@ -465,4 +465,7 @@ qnoremap l i
 
 nnoremap . za
 
+nnoremap q :q<cr>
+nnoremap <c-c> :q<cr>
+
 colors nord
