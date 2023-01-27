@@ -27,15 +27,8 @@ local custom_actions = transform_mod({
 	end,
 })
 
-local send_selected_or_all_to_qf = function(prompt_bufnr)
-	local picker = state.get_current_picker(prompt_bufnr)
-	for _, _ in ipairs(picker:get_multi_selection()) do
-		telescope_actions.send_selected_to_qflist(prompt_bufnr)
-		telescope_actions.open_qflist(prompt_bufnr)
-		return
-	end
-	telescope_actions.send_to_qflist(prompt_bufnr)
-	telescope_actions.open_qflist(prompt_bufnr)
+local open_first_qf_item = function(_)
+	vim.cmd.cfirst()
 end
 
 telescope.setup({
@@ -44,12 +37,12 @@ telescope.setup({
 			n = {
 				["<ScrollWheelUp>"] = telescope_actions.preview_scrolling_up,
 				["<ScrollWheelDown>"] = telescope_actions.preview_scrolling_down,
-				["<C-q>"] = send_selected_or_all_to_qf,
+				["<C-q>"] = telescope_actions.smart_send_to_qflist + telescope_actions.open_qflist + open_first_qf_item,
 			},
 			i = {
 				["<ScrollWheelUp>"] = telescope_actions.preview_scrolling_up,
 				["<ScrollWheelDown>"] = telescope_actions.preview_scrolling_down,
-				["<C-q>"] = send_selected_or_all_to_qf,
+				["<C-q>"] = telescope_actions.smart_send_to_qflist + telescope_actions.open_qflist + open_first_qf_item,
 			},
 		},
 	},
