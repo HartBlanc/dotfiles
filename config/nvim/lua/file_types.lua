@@ -9,6 +9,7 @@ vim.filetype.add({
 	},
 	filename = {
 		["BUILD"] = "please",
+		["new-commit"] = "arcdiff",
 	},
 })
 
@@ -38,5 +39,9 @@ file_types_utils.setup({
 	},
 	gitcommit = {
 		spellcheck = true,
+	},
+	arcdiff = {
+		spellcheck = true,
+		text_width = 1000,
 	},
 })

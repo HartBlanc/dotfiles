@@ -1,10 +1,13 @@
 ; extends
 
 ; map values
-
-(keyed_element
-  (literal_element)
-  (literal_element) @literal_value.inner) @literal_value.outer
+(
+ (keyed_element
+   (literal_element)
+   (literal_element) @literal_value.inner) @_start
+ . ","? @_end
+ (#make-range! "literal_value.outer" @_start @_end)
+)
 
 ; slice values
 

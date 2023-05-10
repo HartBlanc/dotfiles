@@ -114,9 +114,9 @@ alias conflicts='nvim -q <(git diff --name-only --diff-filter=U | sed -e "s@^@$(
 # select a branch to checkout from a list of all local branches
 function gcb {
     if [ "$1" ]; then
-        BRANCH=$(git branch | fzf --query=$1)
+        BRANCH=$(git branch --sort=-committerdate | fzf --no-sort --query=$1)
     else
-        BRANCH=$(git branch | fzf)
+        BRANCH=$(git branch --sort=-committerdate | fzf --no-sort)
     fi
 
     if [ "$BRANCH" ]; then

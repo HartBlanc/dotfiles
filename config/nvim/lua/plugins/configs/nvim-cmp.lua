@@ -26,8 +26,8 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i" }),
-		["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i" }),
+		["<down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i" }),
+		["<up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i" }),
 		["<c-y>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. `select = true` implicity confirms the item when it is selected. To explicitly remove the item you must abort.
 	},
 })

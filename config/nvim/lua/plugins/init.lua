@@ -169,6 +169,12 @@ local plugins = {
 			require("plugins.configs.dressing")
 		end,
 	},
+	{
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("plugins.configs.dressing")
+		end,
+	},
 }
 
 require("packer").startup({
